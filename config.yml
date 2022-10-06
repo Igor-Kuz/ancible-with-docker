@@ -2,7 +2,7 @@
 - name: Preconfig
   hosts: demo
   tasks:
-    - name: Утановка Docker
+    - name: Install_Docker
       block:
         - name: Добавляем universe
           apt_repository:
@@ -48,7 +48,7 @@
             enabled: true
       become: true
 
-    - name: Утановка Docker-compose
+    - name: install_Docker-compose
       block:
         - name: Получение последней версии Docker-compose
           uri:
@@ -71,6 +71,6 @@
             groups: docker
             append: true
 
-        - name: Перезагрузка
+        - name: Reboot
           reboot:
       become: true
